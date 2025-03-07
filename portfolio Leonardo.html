@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>portfolio Leonardo</title>
+
+    <!-- CDN do Tailwind CSS -->
+    <script src="https://unpkg.com/@tailwindcss/browser@4"></script>
+
+    <style>
+        /* Estilos personalizados (opcional, para personalizações extras) */
+        .portfolio-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 0.5rem;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: box-shadow 0.3s;
+        }
+
+        .portfolio-card:hover {
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+
+<body class="bg-gray-100">
+
+    <!-- Cabeçalho e Menu de Navegação -->
+    <header class="bg-gray-800 text-white p-4">
+        <nav>
+            <ul class="flex justify-center space-x-6">
+                <li><a href="#home" class="hover:text-gray-400">Home</a></li>
+                <li><a href="#Sobre mim" class="hover:text-gray-400">Sobre mim</a></li>
+                <li><a href="#Email" class="hover:text-gray-400">Email</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!--home -->
+    <section id="home" class="text-center p-12">
+        <h1 class="text-4xl font-bold mb-4">Bem-vindo ao portfolio Leonardo!</h1>
+        <p class="text-xl text-gray-700">Aqui você pode ver, Sobre mim.</p>
+        <div class="flex items-center justify-center">
+            <img src="foto.png">
+        </div>
+
+    </section>
+
+    <!-- Sobre mim -->
+    <section id="Sobre mim" class="p-12">
+        <h2 class="text-3xl font-semibold text-center mb-8">Sobre mim</h2>
+        <div class="flex items-center justify-center"></div>
+        <div id="Sobre mim-container" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                  Sou Leonado, tenho 30 anos, Trabalho no Zema a 7 anos,Estudo   Tecnologia da Informação na Bit Company
+                   e Sou paroquiano da Sagrada Famila
+
+                <!-- Email -->
+                <div class="max-w-56 rounded overflow-hidden shadow-lg">
+
+                </div>
+
+    </section>
+
+    <!-- Email -->
+    <section id="Email" class="p-12">
+        <h2 class="text-3xl font-semibold text-center mb-8">Email</h2>
+        <div class="flex items-center justify-center"></div>
+             leoestudante95@gmail.com
+
+
+        <!-- Rodapé -->
+        <footer class="bg-gray-800 text-white text-center p-4 mt-12">
+            <p>&copy; 2025 portfolio Leonardo - Todos os direitos reservados.</p>
+        </footer>
+
+        <!-- JavaScript -->
+        <script>
+            // Função para validar o formulário antes de enviar
+            function validarFormulario() {
+                const titulo = document.getElementById('titulo').value;
+                const diretor = document.getElementById('diretor').value;
+                const ano = document.getElementById('ano').value;
+                const genero = document.getElementById('genero').value;
+
+                // Verificando se todos os campos estão preenchidos
+                if (!titulo || !diretor || !ano || !genero) {
+                    alert('Por favor, preencha todos os campos!');
+                    return false; // Impede o envio do formulário
+                }
+
+                // Verificando se o ano é válido
+                if (ano < 1900 || ano > new Date().getFullYear()) {
+                    alert('Por favor, insira um ano válido!');
+                    return false; // Impede o envio do formulário
+                }
+
+                alert('Filme cadastrado com sucesso!');
+                exibirFilme(titulo, diretor, ano, genero, 'imagem.jpg');
+                return true; // Permite o envio do formulário
+            }
+
+            // Função para exibir um filme na lista de filmes
+            function exibirFilme(titulo, diretor, ano, genero, foto) {
+                const container = document.getElementById('filmes-container');
+
+                const filmeCard = document.createElement('div');
+                filmeCard.classList.add('filme-card');
+
+                filmeCard.innerHTML = `
+                <img src="${foto}" alt="Foto do Filme" class="rounded-lg mb-4 w-full h-48 object-cover">
+                <h3 class="text-xl font-bold mb-2">${titulo}</h3>
+                <p class="text-gray-700"><strong>Diretor:</strong> ${diretor}</p>
+                <p class="text-gray-700"><strong>Ano de Lançamento:</strong> ${ano}</p>
+                <p class="text-gray-700"><strong>Gênero:</strong> ${genero}</p>
+            `;
+
+                container.appendChild(filmeCard);
+            }
+        </script>
+
+</body>
+
+</html>
